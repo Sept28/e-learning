@@ -1,7 +1,7 @@
 <div class="w-full text-gray-700 bg-white dark-mode:text-gray-200 dark-mode:bg-gray-800">
   <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
     <div class="p-2 flex flex-row items-center justify-between">
-      <a href="/" class="text-lg tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline font-extrabold"><img width="70" src="images/school-bag.png" alt=""></a>
+      <a href="{{ url('/') }}" class="text-lg tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline font-extrabold"><img width="70" src="images/school-bag.png" alt=""></a>
       <div @click.away="open = false" class="relative hidden md:flex" x-data="{ open: false }">
         <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-bold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
           <span>Program Belajar</span>

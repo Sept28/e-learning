@@ -13,32 +13,32 @@
 
                 {{-- All Class --}}
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="100">
-                  <a href="/class-video">
-                    <img class="rounded-xl" src="https://cdn.dribbble.com/users/5697129/screenshots/14804367/media/8062bf1c60757791c6f9a1907d8a2859.png?compress=1&resize=1200x900" alt="">
+                  <a href="{{ url('/class-video') }}">
+                    <img class="rounded-xl" src="{{ asset('images/category.png') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps') > 5 ? substr('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps',0 ,30)."..." : null ?></h2>  
                   </a>
                   <p class="py-3 text-gray-400 text-md font-semibold">15 modul</p>
                   <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="200">
-                  <a href="/class-video">
-                    <img class="rounded-xl" src="https://cdn.dribbble.com/users/2564256/screenshots/16008655/media/afc53070b17e9968d169688018f99cf2.png?compress=1&resize=1200x900" alt="">
+                  <a href="{{ url('/class-video') }}">
+                    <img class="rounded-xl" src="{{ asset('images/category2.png') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase') > 5 ? substr('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase',0 ,35)."..." : null ?></h2>
                   </a>
                   <p class="py-3 text-gray-400 text-md font-semibold">15 modul</p>
                   <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="300">
-                  <a href="/class-video">
-                    <img class="rounded-xl" src="https://cdn.dribbble.com/users/66340/screenshots/7499880/media/5983ca57143885c0eb39af49e8a12f63.jpg?compress=1&resize=1200x900" alt="">
+                  <a href="{{ url('/class-video') }}">
+                    <img class="rounded-xl" src="{{ asset('images/category.jpg') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Laravel 8x Fundamental Laravel 8x Fundamental with this e-learning') > 5 ? substr('Laravel 8x Fundamental with this e-learning',0 ,35)."..." : null ?></h2>
                   </a>
                   <p class="py-3 text-gray-400 text-md font-semibold">48 modul</p>
                   <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="400">
-                  <a href="/class-video">
-                    <img class="rounded-xl" src="https://cdn.dribbble.com/users/5697129/screenshots/14804367/media/8062bf1c60757791c6f9a1907d8a2859.png?compress=1&resize=1200x900" alt="">
+                  <a href="{{ url('/class-video') }}">
+                    <img class="rounded-xl" src="{{ asset('images/category4.png') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps') > 5 ? substr('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps',0 ,30)."..." : null ?></h2>  
                   </a>
                   <p class="py-3 text-gray-400 text-md font-semibold">15 modul</p>

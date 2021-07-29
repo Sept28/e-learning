@@ -10,7 +10,7 @@
       <div class="col-span-3 inline-block lg:hidden">
         <div class="h-full rounded-lg">
           <div class="p-5 sticky top-32">
-            <img class="rounded-lg" src="https://cdn.dribbble.com/users/5697129/screenshots/14804367/media/8062bf1c60757791c6f9a1907d8a2859.png?compress=1&resize=1200x900" alt="">
+            <img class="rounded-lg" src="{{ asset('images/geolocation.png') }}" alt="">
             <div class="flex flex-col justify-center">
               <a href="#class" class="py-2 my-5 w-full bg-green-500 text-center text-white rounded-full">Lihat Kelas</a>
               <h6 class="font-bold py-2">Dalam kelas ini terdapat :</h6>
@@ -51,7 +51,7 @@
                       style="width:100px;
                               height:100px;
                               background-size:cover;
-                              background-image: url('https://1.bp.blogspot.com/-Vx5hYRH7ALw/Xt5Xjd5izFI/AAAAAAAABuQ/v7YLf-IpQj4E1VbI6qoSLoeAhk5T8GawwCNcBGAsYHQ/s1600/nblh_ayu_vienalatte_16.jpg')"
+                              background-image: url('{{ asset('images/review-nabilla.jpg') }}')"
                     >
                     </div>
                     <div class="py-3 md:flex md:flex-col md:py-5 md:ml-3">
