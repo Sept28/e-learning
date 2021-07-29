@@ -14,13 +14,13 @@
           Kembangkan karirmu sebagai developer
           profesional dengan keahlian coding yang
           dibutuhkan di dunia industri melalui kelas online
-          kami.
+          kami
         </p>
         <div class="py-5 lg:hidden" data-aos="fade-right" data-aos-delay="100">
           <img class="mx-auto" src="{{ asset('/images/banner_education.svg') }}" alt="">
         </div>
         <div class="flex text-white mt-5 md:mt-10 lg:mt-5">
-          <a href="{{ url('/all-class') }}" class="rounded-full px-5 py-3 bg-green-500 mx-auto lg:mx-0">Lihat Kelas</a>
+          <a href="{{ route('all-class') }}" class="rounded-full px-5 py-3 bg-green-500 mx-auto lg:mx-0">Lihat Kelas</a>
           <a href="{{ url('/map') }}" class="rounded-full px-5 py-3 bg-green-500 mx-auto lg:mx-0 lg:ml-5">Kelas Pilihan</a>
         </div>
       </div>
@@ -365,7 +365,7 @@
         <h2 class="py-4 text-4xl text-center font-semibold">Tertarik untuk belajar?</h2>
         <p class="mx-auto text-center text-lg md:w-10/12 lg:w-5/12">
           Belajar langsung dari mentor berpengalaman
-          di bidangnya tanpa batas waktu
+          di bidangnya tanpa batas waktu.
         </p>
         <div class="pt-8 flex justify-center">
           <a href="/all-class" class="mx-auto text-white rounded-full px-16 py-3 bg-green-500">Lihat Kelas</a>
@@ -373,7 +373,6 @@
       </div>
     </div>
   </div>
-  
 </div>
 
 @endsection

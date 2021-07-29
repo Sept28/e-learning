@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AllClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,7 @@ Route::get('/class-video', function () {
     return view('pages.class-video');
 });
 
-Route::get('/all-class', function () {
-    return view('pages.all-class');
-});
+Route::get('/all-class', [AllClassController::class, 'index'])->name('all-class');
 
 Route::get('/class-categories', function () {
     return view('pages.class-categories');

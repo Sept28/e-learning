@@ -11,3 +11,4 @@
       });
   });
 </script> --}}
+<link href="{{ asset('paginationjs/dist/pagination.css') }}" rel="stylesheet" type="text/css">

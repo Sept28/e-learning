@@ -95,8 +95,14 @@
             </div>
 
             <!-- Pagination -->
-            <div id="data-container"></div>
-            <div id="pagination-container"></div>
+            <div id="wrapper">
+              <section>
+                  <div class="data-container"></div>
+                  <div id="pagination-demo1"></div>
+                  <div class="data-container"></div>
+                  <div id="pagination-demo2"></div>
+              </section>
+          </div>
 
         </div>
     </div>
