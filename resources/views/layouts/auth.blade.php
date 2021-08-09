@@ -30,6 +30,11 @@
     input{
       transition: all 0.5s;
     }
+
+    textarea:focus {
+      border: 2px solid #000;
+      outline: none;
+    }
     
   </style>
 </head>

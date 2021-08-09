@@ -1,8 +1,18 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\ChapterController;
+use App\Http\Controllers\Admin\CourseVideoController;
+use App\Http\Controllers\AllClassController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AllClassController;
+use App\Http\Controllers\MainController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +25,7 @@ use App\Http\Controllers\AllClassController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::get('/class-video', function () {
     return view('pages.class-video');
@@ -35,6 +45,14 @@ Route::get('/map', function () {
     return view('pages.map');
 });
 
+Route::post('/login-authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate')->middleware('guest');
+
+Route::get('/login-authenticate', [AuthController::class, 'authenticate'])->name('login')->middleware('guest');;
+
+Route::post('/register-authenticate', [AuthController::class, 'register'])->name('register.authenticate')->middleware('guest');;
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout.authenticate');
+
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -43,82 +61,27 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
-Route::get('/admin', function () {
-    return view('pages.admin.dashboard');
-});
-
 Route::get('/settings', function () {
     return view('pages.admin.settings');
 });
 
-Route::get('/admin/class', function () {
-    return view('pages.admin.class.index');
-});
+// ->middleware(['auth', 'admin'])
+Route::prefix('admin')
+    ->group(function(){
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('course', CourseController::class);
 
-Route::get('/admin/class/create', function () {
-    return view('pages.admin.class.create');
-});
+        Route::get('chapter/create/{id}', [ChapterController::class, 'create'])->name('create.chapter');
+        Route::post('chapter/store/{id}', [ChapterController::class, 'store'])->name('store.chapter');
+        Route::resource('chapter', ChapterController::class);
 
-Route::get('/admin/class/edit', function () {
-    return view('pages.admin.class.edit');
-});
-
-Route::get('/admin/category', function () {
-    return view('pages.admin.category.index');
-});
-
-Route::get('/admin/category/create', function () {
-    return view('pages.admin.category.create');
-});
-
-Route::get('/admin/category/edit', function () {
-    return view('pages.admin.category.edit');
-});
-
-Route::get('/admin/user', function () {
-    return view('pages.admin.user.index');
-});
-
-Route::get('/admin/user/create', function () {
-    return view('pages.admin.user.create');
-});
-
-Route::get('/admin/user/edit', function () {
-    return view('pages.admin.user.edit');
-});
-
-Route::get('/admin/review', function () {
-    return view('pages.admin.review.index');
-});
-
-Route::get('/admin/review/create', function () {
-    return view('pages.admin.review.create');
-});
-
-Route::get('/admin/review/edit', function () {
-    return view('pages.admin.review.edit');
-});
-
-Route::get('/admin/class/chapter', function () {
-    return view('pages.admin.class.chapter.index');
-});
-
-Route::get('/admin/class/chapter/create', function () {
-    return view('pages.admin.class.chapter.create');
-});
-
-Route::get('/admin/class/chapter/edit', function () {
-    return view('pages.admin.class.chapter.edit');
-});
-
-Route::get('/admin/class/chapter/video', function () {
-    return view('pages.admin.class.chapter.video.index');
-});
-
-Route::get('/admin/class/chapter/video/create', function () {
-    return view('pages.admin.class.chapter.video.create');
-});
-
-Route::get('/admin/class/chapter/video/edit', function () {
-    return view('pages.admin.class.chapter.video.edit');
-});
+        Route::get('course-video/create/{id}', [CourseVideoController::class, 'create'])->name('create.course-video');
+        Route::post('course-video/store/{id}', [CourseVideoController::class, 'store'])->name('store.course-video');
+        Route::resource('course-video', CourseVideoController::class);
+        
+        Route::resource('categories', CategoryController::class);
+        Route::resource('user', UserController::class);
+        Route::resource('review', ReviewController::class);
+    });
+    
+    Auth::routes();

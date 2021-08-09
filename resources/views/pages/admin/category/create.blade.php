@@ -16,33 +16,37 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header px-5">
-              <a class="btn btn-link" href="/admin/category">
+              <a class="btn btn-link" href="{{ route('categories.index') }}">
                 <i class="now-ui-icons arrows-1_minimal-left"></i> back
               </a>
-              <h4 class="card-title">Create form</h4>
+              <h4 class="card-title">Create Class</h4>
+              @if(Session::has('success'))
+                  <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                  </div>
+              @endif
             </div>
             <div class="card-body px-5">
-              <form>
+              <form method="POST" action="{{ route('categories.store') }}">
+                @csrf
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Name</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                  <label>Name</label>
+                  <input name="name" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Creator</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <label>Creator</label>
+                  <select name="creator" class="form-control">
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}" selected>{{ $user->name }}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div>
-                  <label for="exampleFormControlFile1">image</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  <label>image</label>
+                  <input name="image" type="file" class="form-control-file">
                 </div>
                 <div class="form-group d-flex justify-content-end">
-                  <button type="button" class="btn btn-info px-5">Submit</button>
+                  <button type="submit" class="btn btn-info px-5">Submit</button>
                 </div>
               </form>
             </div>

@@ -23,6 +23,9 @@
 
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/now-ui-dashboard-master/assets/demo/demo.css" rel="stylesheet" />
+
+  {{-- Datatables --}}
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.css"/>
   @stack('addon-style')
 
 </head>
@@ -45,41 +48,47 @@
         </div>
         <div class="sidebar-wrapper" id="sidebar-wrapper">
           <ul class="nav">
-            <li class="active">
-              <a href="/admin">
+            <li class="{{ (request()->is('admin')) ? 'active' : '' }}">
+              <a href="{{ route('dashboard') }}">
                 <i class="now-ui-icons design_app"></i>
                 <p>Dashboard</p>
               </a>
             </li>
             <div class="my-1 border-1 border-white w-full"></div>
-            <li>
-              <a href="/admin/class">
+            <li class="{{ (request()->is('admin/course*')) ? 'active' : '' }}">
+              <a href="{{ route('course.index') }}">
                 <i class="now-ui-icons tech_laptop"></i>
-                <p>Class</p>
+                <p>Courses</p>
               </a>
             </li>
-            <li>
-              <a href="/admin/category">
+            <li class="{{ (request()->is('admin/categories*')) ? 'active' : '' }}">
+              <a href="{{ route('categories.index') }}">
                 <i class="now-ui-icons shopping_tag-content"></i>
                 <p>Categories</p>
               </a>
             </li>
-            <li>
-              <a href="/admin/user">
+            <li class="{{ (request()->is('admin/user*')) ? 'active' : '' }}">
+              <a href="{{ route('user.index') }}">
                 <i class="now-ui-icons users_single-02"></i>
                 <p>Users</p>
               </a>
             </li>
-            <li>
-              <a href="/admin/review">
+            <li class="{{ (request()->is('admin/review*')) ? 'active' : '' }}">
+              <a href="{{ route('review.index') }}">
                 <i class="now-ui-icons ui-2_like"></i>
                 <p>Reviews</p>
               </a>
             </li>
-            <li>
+            <li class="{{ (request()->is('admin/settings*')) ? 'active' : '' }}">
               <a href="/settings">
                 <i class="now-ui-icons loader_gear"></i>
                 <p>Settings</p>
+              </a>
+            </li>
+            <li class="{{ (request()->is('admin/logout*')) ? 'active' : '' }}">
+              <a href="/logout">
+                <i class="now-ui-icons sport_user-run"></i>
+                <p>Logout</p>
               </a>
             </li>
           </ul>
@@ -205,6 +214,7 @@
 
     });
   </script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.10.25/datatables.min.js"></script>
   @stack('addon-script')
 </body>
 

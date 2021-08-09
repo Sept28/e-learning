@@ -99,8 +99,6 @@
               <section>
                   <div class="data-container"></div>
                   <div id="pagination-demo1"></div>
-                  <div class="data-container"></div>
-                  <div id="pagination-demo2"></div>
               </section>
           </div>
 

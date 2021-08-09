@@ -16,55 +16,61 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header px-5">
-              <a class="btn btn-link" href="/admin/user">
+              <a class="btn btn-link" href="{{ url('/admin/user') }}">
                 <i class="now-ui-icons arrows-1_minimal-left"></i> back
               </a>
               <h4 class="card-title">Create form</h4>
+              @if(Session::has('success'))
+                  <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                  </div>
+              @endif
             </div>
             <div class="card-body px-5">
-              <form>
+              <form method="POST" action="{{ route('user.store') }}">
+                @csrf
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Name</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <label>Name</label>
+                  <input type="text" name="name" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Email</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <label>Email</label>
+                  <input type="email" name="email" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Address</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <label>Address</label>
+                  <textarea class="form-control" name="address" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Phone Number</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <label>Phone Number</label>
+                  <input type="text" name="phone_number" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Personal Goal</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <label>Personal Goal</label>
+                  <select class="form-control" name="personal_goal">
+                    <option value="" disabled>-----------------</option>
+                    <option value="Full-stack Developer">Full-stack Developer</option>
+                    <option value="Front-End Developer">Front-End Developer</option>
+                    <option value="Back-End Developer">Back-End Developer</option>
+                    <option value="Mobile App">Mobile App Developer</option>
+                    <option value="UI Designer">UI Designer</option>
+                    <option value="UX Designer">UX Designer</option>
+                    <option value="Ilustration Designer">Ilustration Designer</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Role</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <label>Role</label>
+                  <select class="form-control" name="role">
+                    <option>Admin</option>
+                    <option>User</option>
                   </select>
                 </div>
                 <div>
-                  <label for="exampleFormControlFile1">image</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  <label>image</label>
+                  <input type="file" name="image" class="form-control-file">
                 </div>
                 <div class="form-group d-flex justify-content-end">
-                  <button type="button" class="btn btn-info px-5">Submit</button>
+                  <button type="submit" class="btn btn-info px-5">Submit</button>
                 </div>
               </form>
             </div>

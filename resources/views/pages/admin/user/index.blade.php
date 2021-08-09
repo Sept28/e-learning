@@ -17,12 +17,20 @@
           <div class="card">
             <div class="card-header">
               <h4 class="card-title">User Table</h4>
+              @if(Session::has('success'))
+                  <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                  </div>
+              @endif
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table">
-                  <a href="/admin/user/create" class="btn btn-info">Add User <i class="now-ui-icons ui-1_simple-add"></i> </a>
+                  <a href="{{ route('user.create') }}" class="btn btn-info">Add User <i class="now-ui-icons ui-1_simple-add"></i> </a>
                   <thead class="text-primary">
+                    <th>
+                      No
+                    </th>
                     <th>
                       Name
                     </th>
@@ -49,33 +57,42 @@
                     </th>
                   </thead>
                   <tbody>
+                    @foreach ($users as $index=>$user)    
                     <tr>
                       <td>
-                        Dakota Rice
+                        {{ $index+1 }}
                       </td>
                       <td>
-                        Oud-Turnhout
+                        {{ $user->name }}
                       </td>
                       <td>
-                        Oud-Turnhout
+                        {{ $user->email }}
                       </td>
                       <td>
-                        Oud-Turnhout
+                        {{ $user->address }}
                       </td>
                       <td>
-                        Oud-Turnhout
+                        {{ $user->phone_number }}
                       </td>
                       <td>
-                        Oud-Turnhout
+                        {{ $user->personal_goal }}
                       </td>
                       <td>
-                        <img src="/now-ui-dashboard-master/assets/img/apple-icon.png" alt="">
+                        {{ $user->role }}
+                      </td>
+                      <td>
+                        <img src="{{ asset('now-ui-dashboard-master/assets/img/apple-icon.png') }}" alt="">
                       </td>
                       <td class="text-center">
-                        <a href="/admin/user/edit" class="btn btn-link btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a>
-                        <button class="btn btn-link btn-sm text-danger"><i class="now-ui-icons ui-1_simple-remove"></i></button>
+                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-link btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a>
+                        <form class="d-inline-block" action="{{ route('user.destroy', $user->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-link btn-sm text-danger"><i class="now-ui-icons ui-1_simple-remove"></i></button>
+                        </form>
                       </td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

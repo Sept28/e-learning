@@ -17,11 +17,15 @@
             <div class="card p-5">
               <div class="card-header">
                 <h4 class="card-title">Review Table</h4>
+                @if(Session::has('success'))
+                  <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                  </div>
+                @endif
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
-                    <a href="/admin/review/create" class="btn btn-info">Add Category <i class="now-ui-icons ui-1_simple-add"></i> </a>
                     <thead class="text-primary">
                       <th>
                         Comment
@@ -30,28 +34,33 @@
                         Commentator
                       </th>
                       <th>
-                        Star
+                        Rate
                       </th>
                       <th class="text-center">
                         Action
                       </th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td>
-                          <img src="/now-ui-dashboard-master/assets/img/apple-icon.png" alt="">
-                        </td>
-                        <td class="text-center">
-                          <a href="/admin/review/edit" class="btn btn-link btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a>
-                          <button class="btn btn-link btn-sm text-danger"><i class="now-ui-icons ui-1_simple-remove"></i></button>
-                        </td>
-                      </tr>
+                      @foreach ($reviews as $index=>$review)
+                        <tr>
+                          <td>
+                            {{ $review->comment }}
+                          </td>
+                          <td>
+                            {{ $review->user ? $review->user->name : '' }}
+                          </td>
+                          <td>
+                            {{ $review->rate }}
+                          </td>
+                          <td class="text-center">
+                            <form class="d-inline-block" action="{{ route('review.destroy', $review->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-link btn-sm text-danger"><i class="now-ui-icons ui-1_simple-remove"></i></button>
+                            </form>
+                          </td>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
                 </div>

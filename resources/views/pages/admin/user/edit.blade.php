@@ -16,55 +16,63 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header px-5">
-              <a class="btn btn-link" href="/admin/user">
+              <a class="btn btn-link" href="{{ url('/admin/user') }}">
                 <i class="now-ui-icons arrows-1_minimal-left"></i> back
               </a>
               <h4 class="card-title">Edit form</h4>
+              @if(Session::has('success'))
+                  <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                  </div>
+              @endif
             </div>
             <div class="card-body px-5">
-              <form>
+              <form method="POST" action="{{ route('user.update', $users->id) }}">
+                @csrf
+                @method('PUT')
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Name</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <label>Name</label>
+                  <input type="text" name="name" value="{{ old('name', $users->name) }}" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Email</label>
-                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <label>Email</label>
+                  <input type="email" name="email" value="{{ old('email', $users->email) }}" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Address</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  <label>Address</label>
+                  <textarea class="form-control" name="address" rows="3">{{ old('address', $users->address) }}</textarea>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Phone Number</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <label>Phone Number</label>
+                  <input type="text" name="phone_number" value="{{ old('phone_number', $users->phone_number) }}" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Personal Goal</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <label>Personal Goal</label>
+                  <select class="form-control" name="personal_goal">
+                    <option value="{{ $users->personal_goal }}" selected>{{ $users->personal_goal }}</option>
+                    <option value="" disabled>-----------------</option>
+                    <option value="Full-stack Developer">Full-stack Developer</option>
+                    <option value="Front-End Developer">Front-End Developer</option>
+                    <option value="Back-End Developer">Back-End Developer</option>
+                    <option value="Mobile App">Mobile App Developer</option>
+                    <option value="UI Designer">UI Designer</option>
+                    <option value="UX Designer">UX Designer</option>
+                    <option value="Ilustration Designer">Ilustration Designer</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="exampleFormControlSelect1">Role</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                  <label>Role</label>
+                  <select value="{{ old('role', $users->role) }}" class="form-control" name="role">
+                    <option>Admin</option>
+                    <option>User</option>
                   </select>
                 </div>
                 <div>
-                  <label for="exampleFormControlFile1">image</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  <label>image</label>
+                  <input type="file" value="{{ old('image', $users->image) }}" name="image" class="form-control-file">
                 </div>
                 <div class="form-group d-flex justify-content-end">
-                  <button type="button" class="btn btn-info px-5">Edit</button>
+                  <button type="submit" class="btn btn-info px-5">Submit</button>
                 </div>
               </form>
             </div>

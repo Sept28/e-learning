@@ -17,17 +17,22 @@
           <div class="card p-5">
             <div class="card-header">
               <h4 class="card-title">Category Table</h4>
+              @if(Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                  {{ Session::get('success') }}
+                </div>
+              @endif
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table">
-                  <a href="/admin/category/create" class="btn btn-info">Add Category <i class="now-ui-icons ui-1_simple-add"></i> </a>
+                <table class="table" id="crudTable">
+                  <a href="{{ route('categories.create') }}" class="btn btn-info">Add Category <i class="now-ui-icons ui-1_simple-add"></i> </a>
                   <thead class="text-primary">
                     <th>
                       Name
                     </th>
                     <th>
-                      User
+                      User Create
                     </th>
                     <th>
                       Image
@@ -37,21 +42,27 @@
                     </th>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        Dakota Rice
-                      </td>
-                      <td>
-                        Oud-Turnhout
-                      </td>
-                      <td>
-                        <img src="/now-ui-dashboard-master/assets/img/apple-icon.png" alt="">
-                      </td>
-                      <td class="text-center">
-                        <a href="/admin/category/edit" class="btn btn-link btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a>
-                        <button class="btn btn-link btn-sm text-danger"><i class="now-ui-icons ui-1_simple-remove"></i></button>
-                      </td>
+                    @foreach ($categories as $index=>$category)
+                      <tr>
+                        <td>
+                          {{ $category->name }}
+                        </td>
+                        <td>
+                          {{ $category->user ? $category->user->name : '' }}
+                        </td>
+                        <td>
+                          {{ asset('/now-ui-dashboard-master/assets/img/apple-icon.png') }}
+                        </td>
+                        <td class="text-center">
+                          <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-link btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a>
+                          <form class="d-inline-block" action="{{ route('categories.destroy', $category->id) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button type="submit" class="btn btn-link btn-sm text-danger"><i class="now-ui-icons ui-1_simple-remove"></i></button>
+                          </form>
+                        </td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
