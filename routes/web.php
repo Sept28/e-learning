@@ -26,6 +26,14 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', [MainController::class, 'index'])->name('home');
+Route::get('/login', [MainController::class, 'login'])->name('login');
+Route::get('/register', [MainController::class, 'register'])->name('register');
+Route::get('/all-class', [MainController::class, 'allClass'])->name('pages.all-class');
+Route::get('/class-category', [MainController::class, 'classCategory'])->name('pages.class-category');
+Route::get( '/class-map', [MainController::class, 'classMap'])->name('pages.class-map');
+Route::get( '/class-video', [MainController::class, 'classVideo'])->name('pages.class-video');
+Route::get('/map', [MainController::class, 'map'])->name('pages.map');
+
 
 Route::get('/class-video', function () {
     return view('pages.class-video');
@@ -53,13 +61,13 @@ Route::post('/register-authenticate', [AuthController::class, 'register'])->name
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout.authenticate');
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+// Route::get('/login', function () {
+//     return view('auth.login');
+// });
 
-Route::get('/register', function () {
-    return view('auth.register');
-});
+// Route::get('/register', function () {
+//     return view('auth.register');
+// });
 
 Route::get('/settings', function () {
     return view('pages.admin.settings');
