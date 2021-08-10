@@ -14,7 +14,7 @@
                 <div class="col-span-12 text-xl font-bold text-center md:text-left">Pilih Kelas Berdasarkan Category</div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-right" data-aos-delay="100">
                   <div class="rounded-xl p-8">
-                    <a href="{{ url('/class-categories') }}">
+                    <a href="{{ route('pages.class-category') }}">
                       <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category.png') }}" alt="">
                       <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Web Developer</h2>
                     </a>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-right" data-aos-delay="200">
                   <div class="rounded-xl p-8">
-                    <a href="{{ url('/class-categories') }}">
+                    <a href="{{ route('pages.class-category') }}">
                       <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category2.png') }}" alt="">
                       <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Android Developer</h2>
                     </a>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-right" data-aos-delay="300">
                   <div class="rounded-xl p-8">
-                    <a href="{{ url('/class-categories') }}">
+                    <a href="{{ route('pages.class-category') }}">
                       <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category3.jpg') }}" alt="">
                       <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Ios Developer</h2>
                     </a>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-right" data-aos-delay="400">
                   <div class="rounded-xl p-8">
-                     <a href="{{ url('/class-categories') }}">
+                     <a href="{{ route('pages.class-category') }}">
                       <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category4.png') }}" alt="">
                       <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Fullstack Developer</h2>
                      </a>
@@ -60,7 +60,7 @@
 
                 {{-- All Class --}}
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="100">
-                  <a href="{{ asset('/class-video') }}">
+                  <a href="{{ route('pages.class-video') }}">
                     <img class="rounded-xl" src="{{ asset('images/laravel.jpg') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps') > 5 ? substr('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps',0 ,30)."..." : null ?></h2>  
                   </a>
@@ -68,7 +68,7 @@
                   <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="200">
-                  <a href="{{ asset('/class-video') }}">
+                  <a href="{{ route('pages.class-video') }}">
                     <img class="rounded-xl" src="{{ asset('images/laravel.jpg') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase') > 5 ? substr('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase',0 ,35)."..." : null ?></h2>
                   </a>
@@ -76,7 +76,7 @@
                   <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="300">
-                  <a href="{{ asset('/class-video') }}">
+                  <a href="{{ route('pages.class-video') }}">
                     <img class="rounded-xl" src="{{ asset('images/laravel.jpg') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Laravel 8x Fundamental Laravel 8x Fundamental with this e-learning') > 5 ? substr('Laravel 8x Fundamental with this e-learning',0 ,35)."..." : null ?></h2>
                   </a>
@@ -84,7 +84,7 @@
                   <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
                 </div>
                 <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="400">
-                  <a href="{{ asset('/class-video') }}">
+                  <a href="{{ route('pages.class-video') }}">
                     <img class="rounded-xl" src="{{ asset('images/laravel.jpg') }}" alt="">
                     <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps') > 5 ? substr('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps',0 ,30)."..." : null ?></h2>  
                   </a>

@@ -26,32 +26,14 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', [MainController::class, 'index'])->name('home');
-Route::get('/login', [MainController::class, 'login'])->name('login');
-Route::get('/register', [MainController::class, 'register'])->name('register');
+Route::get('/login-auth', [MainController::class, 'loginAuth'])->name('auth.login');
+Route::get('/register-auth', [MainController::class, 'registerAuth'])->name('auth.register');
 Route::get('/all-class', [MainController::class, 'allClass'])->name('pages.all-class');
 Route::get('/class-category', [MainController::class, 'classCategory'])->name('pages.class-category');
 Route::get( '/class-map', [MainController::class, 'classMap'])->name('pages.class-map');
 Route::get( '/class-video', [MainController::class, 'classVideo'])->name('pages.class-video');
 Route::get('/map', [MainController::class, 'map'])->name('pages.map');
 
-
-Route::get('/class-video', function () {
-    return view('pages.class-video');
-});
-
-Route::get('/all-class', [AllClassController::class, 'index'])->name('all-class');
-
-Route::get('/class-categories', function () {
-    return view('pages.class-categories');
-});
-
-Route::get('/class-map', function () {
-    return view('pages.class-map');
-});
-
-Route::get('/map', function () {
-    return view('pages.map');
-});
 
 Route::post('/login-authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate')->middleware('guest');
 

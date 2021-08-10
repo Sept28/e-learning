@@ -20,8 +20,8 @@
           <img class="mx-auto" src="{{ asset('/images/banner_education.svg') }}" alt="">
         </div>
         <div class="flex text-white mt-5 md:mt-10 lg:mt-5">
-          <a href="{{ route('all-class') }}" class="rounded-full px-5 py-3 bg-green-500 mx-auto lg:mx-0">Lihat Kelas</a>
-          <a href="{{ url('/map') }}" class="rounded-full px-5 py-3 bg-green-500 mx-auto lg:mx-0 lg:ml-5">Kelas Pilihan</a>
+          <a href="{{ route('pages.all-class') }}" class="rounded-full px-5 py-3 bg-green-500 mx-auto lg:mx-0">Lihat Kelas</a>
+          <a href="{{ route('pages.map') }}" class="rounded-full px-5 py-3 bg-green-500 mx-auto lg:mx-0 lg:ml-5">Kelas Pilihan</a>
         </div>
       </div>
       <div class="hidden lg:inline-block lg:col-span-6" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
@@ -59,7 +59,7 @@
     <div class="grid grid-cols-12 gap-4"> 
       <div class="col-span-12 text-center text-3xl font-bold">Kelas Online Populer</div>
       <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-        <a href="{{ url('/class-video') }}">
+        <a href="{{ route('pages.class-video') }}">
           <img class="rounded-xl" src="{{ asset('images/geolocation.png') }}" alt="">
           <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps') > 5 ? substr('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps',0 ,30)."..." : null ?></h2>  
         </a>
@@ -67,7 +67,7 @@
         <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
       </div>
       <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-        <a href="{{ url('/class-video') }}">
+        <a href="{{ route('pages.class-video') }}">
           <img class="rounded-xl" src="{{ asset('images/e-learning.png') }}" alt="">
           <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase') > 5 ? substr('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase',0 ,35)."..." : null ?></h2>
         </a>
@@ -75,7 +75,7 @@
         <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
       </div>
       <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-        <a href="{{ url('/class-video') }}">
+        <a href="{{ route('pages.class-video') }}">
           <img class="rounded-xl" src="{{ asset('images/laravel.jpg') }}" alt="">
           <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Laravel 8x Fundamental Laravel 8x Fundamental with this e-learning') > 5 ? substr('Laravel 8x Fundamental with this e-learning',0 ,35)."..." : null ?></h2>
         </a>
@@ -91,7 +91,7 @@
     <div class="col-span-12 text-xl font-bold text-center md:text-left">Pilih Kelas Berdasarkan Category</div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
       <div class="rounded-xl p-8">
-        <a href="{{ url('/class-categories') }}">
+        <a href="{{ route('pages.class-category') }}">
           <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category.png') }}" alt="">
           <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Web Developer</h2>
         </a>
@@ -99,7 +99,7 @@
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
       <div class="rounded-xl p-8">
-        <a href="{{ url('/class-categories') }}">
+        <a href="{{ route('pages.class-category') }}">
           <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category2.png') }}" alt="">
           <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Android Developer</h2>
         </a>
@@ -107,7 +107,7 @@
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
       <div class="rounded-xl p-8">
-        <a href="{{ url('/class-categories') }}">
+        <a href="{{ route('pages.class-category') }}">
           <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category3.jpg') }}" alt="">
           <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Ios Developer</h2>
         </a>
@@ -115,7 +115,7 @@
     </div>
     <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
         <div class="rounded-xl p-8">
-          <a href="{{ url('/class-categories') }}">
+          <a href="{{ route('pages.class-category') }}">
             <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category4.png') }}" alt="">
             <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Fullstack Developer</h2>
           </a>
@@ -215,56 +215,56 @@
   <div class="row mt-32">
     <div class="grid grid-cols-12 gap-4">
     <div class="col-span-12 text-3xl font-bold text-center md:text-left">Kenapa harus belajar disini?</div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="100" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-case-study.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Studi Kasus</h2>
         <p>Kita akan belajar membangun sebuah real-world project di bidang IT </p>
       </div>
     </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="200" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-operator.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Konsultasi</h2>
         <p>Gabung dengan private group untuk berkonsultasi dengan mentor kelas </p>
       </div>
     </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="300" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-lifetime.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Lifetime Access</h2>
         <p>Mempelajari dan memahami materi kelas lebih santai tanpa batasan waktu </p>
       </div>
     </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="400" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-portfolio.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Portofolio</h2>
         <p>Pelajari dan miliki hasil karya untuk membangun karir masa depan </p>
       </div>
     </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="500" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-fountain-pen.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Pixel Maters</h2>
         <p>Projek kelas yang kita bangun memiliki konsep design yang baik</p>
       </div>
     </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="600" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-no-signal.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Offline Mode</h2>
         <p>Pelajari materi kelas tanpa harus terhubung dengan Internet</p>
       </div>
     </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="700" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="700" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-map-pointer.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Produk Lokal</h2>
         <p>Materi dibuat langsung oleh para kreator di negara Indonesia </p>
       </div>
     </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="flip-right" data-aos-delay="800" data-aos-duration="1200">
+    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1200">
       <div class="rounded-xl p-8 text ">
         <img class="mx-auto md:mx-0 rounded-xl w-1/2" src="{{ asset('images/reason-certificate.svg') }}" alt="">
         <h2 class="py-5 text-center md:text-left font-semibold text-xl leading-tight">Bersertifikat Resmi</h2>
@@ -278,13 +278,13 @@
   <div class="row mt-32">
     <div class="grid grid-cols-12 gap-4">
       <div class="col-span-12 text-3xl font-bold text-center md:text-left">Kenapa Harus Belajar di Sini?</div>
-      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="flip-right" data-aos-delay="200" data-aos-duration="1000">
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
         <div class="rounded-full mx-auto md:mx-0"
             style="width:70px;
                     height:70px;
                     background-position: center;
                     background-size:cover;
-                    background-image: url('{{ asset('images/review-bruce') }}')">
+                    background-image: url('{{ asset('images/review-bruce.jpg') }}')">
         </div>
         <h2 class="pt-5 text-xl font-bold leading-snug">Bruce Mars</h2>
         <p class="text-sm text-gray-400">Fullstack Developer</p>
@@ -298,16 +298,16 @@
         <p class="py-5 leading-relaxed">Mentornya keren cara menyampaikan setiap materinya juga detail dan mudah dipahami. </p>
       </div>
 
-      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="flip-right" data-aos-delay="400" data-aos-duration="1000">
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
         <div class="rounded-full mx-auto md:mx-0"
             style="width:70px;
                     height:70px;
                     background-position: center;
                     background-size:cover;
-                    background-image: url('{{ asset('images/review-umar') }}')">
+                    background-image: url('{{ asset('images/review-umar.jpg') }}')">
         </div>
-        <h2 class="pt-5 text-xl font-bold leading-snug">Umar</h2>
-        <p class="text-sm text-gray-400">Fullstack Developer</p>
+        <h2 class="pt-5 text-xl font-bold leading-snug">Oemar Bakri</h2>
+        <p class="text-sm text-gray-400">Pegawai Negeri</p>
         <div class="flex justify-between">
           <img class="w-1/6" src="images/star.svg" alt="">
           <img class="w-1/6" src="images/star.svg" alt="">
@@ -318,7 +318,7 @@
         <p class="py-5 leading-relaxed">Mentornya keren cara menyampaikan setiap materinya juga detail dan mudah dipahami. </p>
       </div>
 
-      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="flip-right" data-aos-delay="600" data-aos-duration="1000">
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
         <div class="rounded-full mx-auto md:mx-0"
             style="width:70px;
                     height:70px;
@@ -337,7 +337,7 @@
         <p class="py-5 leading-relaxed">Mentornya keren cara menyampaikan setiap materinya juga detail dan mudah dipahami. </p>
       </div>
 
-      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="flip-right" data-aos-delay="800" data-aos-duration="1000">
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 rounded-xl p-8 bg-white text-center md:text-left" data-aos="fade-up" data-aos-delay="800" data-aos-duration="1000">
         <div class="rounded-full mx-auto md:mx-0"
             style="width:70px;
                     height:70px;
@@ -368,7 +368,7 @@
           di bidangnya tanpa batas waktu.
         </p>
         <div class="pt-8 flex justify-center">
-          <a href="/all-class" class="mx-auto text-white rounded-full px-16 py-3 bg-green-500">Lihat Kelas</a>
+          <a href="{{ route('pages.all-class') }}" class="mx-auto text-white rounded-full px-16 py-3 bg-green-500">Lihat Kelas</a>
         </div>
       </div>
     </div>

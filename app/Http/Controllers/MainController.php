@@ -11,14 +11,14 @@ class MainController extends Controller
         return view('pages.home');
     }
 
-    public function login()
+    public function loginAuth()
     {
-        return view('login');
+        return view('auth.login');
     }
 
-    public function register()
+    public function registerAuth()
     {
-        return view('home');
+        return view('auth.register');
     }
 
     public function allClass()
@@ -28,7 +28,7 @@ class MainController extends Controller
 
     public function classCategory()
     {
-        return view('pages.class-category');
+        return view('pages.class-categories');
     }
 
     public function classMap()
