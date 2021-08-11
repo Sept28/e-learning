@@ -43,7 +43,7 @@
                       <tr>
                         <td>{{ $index+1 }}</td>
                         <td>{{ $course->name }}</td>
-                        <td>{{ $course->description }}</td>
+                        <td>{{ Str::limit($course->description,40, '...') }}</td>
                         <td>{{ $course->category ? $course->category->name : '-' }}</td>
                         <td>
                           <img src="/upload_image/{{ $course->image }}" alt="image" width="50">

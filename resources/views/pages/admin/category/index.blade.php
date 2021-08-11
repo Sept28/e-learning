@@ -22,6 +22,15 @@
                   {{ Session::get('success') }}
                 </div>
               @endif
+              @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+              </div>
+            @endif
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -44,15 +53,9 @@
                   <tbody>
                     @foreach ($categories as $index=>$category)
                       <tr>
-                        <td>
-                          {{ $category->name }}
-                        </td>
-                        <td>
-                          {{ $category->user ? $category->user->name : '' }}
-                        </td>
-                        <td>
-                          {{ asset('/now-ui-dashboard-master/assets/img/apple-icon.png') }}
-                        </td>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->user ? $category->user->name : '' }}</td>
+                        <td><img src="/upload_image/{{ $category->image }}" alt="image" width="50"></td>
                         <td class="text-center">
                           <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-link btn-sm"><i class="now-ui-icons design-2_ruler-pencil"></i></a>
                           <form class="d-inline-block" action="{{ route('categories.destroy', $category->id) }}" method="POST">

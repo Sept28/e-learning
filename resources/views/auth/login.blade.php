@@ -45,7 +45,7 @@
                             Login
                     </button>
 
-                    <a href="#" class="py-2 w-3/4 text-white font-bold text-center text-lg rounded-full mx-auto bg-green-500 mt-3">Register</a>
+                    <a href="{{ route('auth.register') }}" class="py-2 w-3/4 text-white font-bold text-center text-lg rounded-full mx-auto bg-green-500 mt-3">Register</a>
                 </div>
               </form>
           </div>

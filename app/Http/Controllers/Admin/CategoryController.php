@@ -41,6 +41,18 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'user_id' => 'required',
+            'image_file' => 'required'
+        ]);
+
+        $image_file = $this->uploadImage($request->file('image_file'));
+
+        $request->merge([
+            'image' => $image_file
+        ]);
+
         Category::create($request->all());
 
         return back()->with('success','posting data sukses');
@@ -82,7 +94,7 @@ class CategoryController extends Controller
         $categories = Category::whereId($id)->first();
         $categories->update([
             'name' => $request->name,
-            'user_id' => $request->creator,
+            'user_id' => $request->user_id,
             'image' => $request->image,
         ]);
 
@@ -100,5 +112,20 @@ class CategoryController extends Controller
         $data = Category::find($id);
         $data->delete();
         return back()->with('success', 'Hapus data berhasil');
+    }
+
+    public function uploadImage($image)
+    {
+        $new_name_image = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('upload_image'), $new_name_image);
+        return $new_name_image;
+    }
+
+    //unlink buat menghapus file
+    public function removeImage($image)
+    {
+        if (file_exists('upload_image/' . $image)) {
+            unlink('upload_image/' . $image);
+        }
     }
 }

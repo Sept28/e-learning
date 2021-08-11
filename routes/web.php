@@ -31,15 +31,15 @@ Route::get('/register-auth', [MainController::class, 'registerAuth'])->name('aut
 Route::get('/all-class', [MainController::class, 'allClass'])->name('pages.all-class');
 Route::get('/class-category', [MainController::class, 'classCategory'])->name('pages.class-category');
 Route::get( '/class-map', [MainController::class, 'classMap'])->name('pages.class-map');
-Route::get( '/class-video', [MainController::class, 'classVideo'])->name('pages.class-video');
+Route::get( '/class-video', [MainController::class, 'classVideo'])->name('pages.class-video')->middleware('auth');
 Route::get('/map', [MainController::class, 'map'])->name('pages.map');
 
 
 Route::post('/login-authenticate', [AuthController::class, 'authenticate'])->name('login.authenticate')->middleware('guest');
 
-Route::get('/login-authenticate', [AuthController::class, 'authenticate'])->name('login')->middleware('guest');;
+Route::get('/login-authenticate', [AuthController::class, 'authenticate'])->name('login')->middleware('guest');
 
-Route::post('/register-authenticate', [AuthController::class, 'register'])->name('register.authenticate')->middleware('guest');;
+Route::post('/register-authenticate', [AuthController::class, 'regist'])->name('register.authenticate')->middleware('guest');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout.authenticate');
 
@@ -61,13 +61,13 @@ Route::prefix('admin')
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('course', CourseController::class);
 
-        Route::get('chapter/create/{id}', [ChapterController::class, 'create'])->name('create.chapter');
-        Route::post('chapter/store/{id}', [ChapterController::class, 'store'])->name('store.chapter');
-        Route::resource('chapter', ChapterController::class);
+        Route::get('course/chapter/create/{id}', [ChapterController::class, 'create'])->name('create.chapter');
+        Route::post('course/chapter/store/{id}', [ChapterController::class, 'store'])->name('store.chapter');
+        Route::resource('course/chapter', ChapterController::class);
 
-        Route::get('course-video/create/{id}', [CourseVideoController::class, 'create'])->name('create.course-video');
-        Route::post('course-video/store/{id}', [CourseVideoController::class, 'store'])->name('store.course-video');
-        Route::resource('course-video', CourseVideoController::class);
+        Route::get('course/course-video/create/{id}', [CourseVideoController::class, 'create'])->name('create.course-video');
+        Route::post('course/course-video/store/{id}', [CourseVideoController::class, 'store'])->name('store.course-video');
+        Route::resource('course/course-video', CourseVideoController::class);
         
         Route::resource('categories', CategoryController::class);
         Route::resource('user', UserController::class);

@@ -26,8 +26,25 @@ class AuthController extends Controller
         return redirect('login');
     }
 
-    public function register(Request $request)
+    public function regist(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password'=> 'required',
+            'address'=> 'required',
+            'phone_number'=> 'required',
+            'personal_goal'=> 'required',
+            'role'=> 'required',
+            'image_file' => 'required'
+        ]);
+        
+        $image_file = $this->uploadImage($request->file('image_file'));
+        
+        $request->merge([
+            'image' => $image_file
+        ]);
+        
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -36,7 +53,16 @@ class AuthController extends Controller
             'phone_number' => $request->phone_number,
             'personal_goal' => $request->personal_goal,
             'role' => $request->role,
-            'image' => $request->image,
+            'image' => $request->image_file,
         ]);
+
+        return back()->with('success', 'Registrasi berhasil !');
+    }
+
+    public function uploadImage($image)
+    {
+        $new_name_image = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('upload_image'), $new_name_image);
+        return $new_name_image;
     }
 }

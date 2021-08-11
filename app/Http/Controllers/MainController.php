@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
 {
     public function index()
     {
-        return view('pages.home');
+        $categories = Category::take('3')->get();
+        $courses   = Course::with('videos')->take(3)->get();
+        return view('pages.home', [
+            'categories' => $categories,
+            'courses' => $courses
+        ]);
     }
 
     public function loginAuth()
@@ -23,17 +30,32 @@ class MainController extends Controller
 
     public function allClass()
     {
-        return view('pages.all-class');
+        $categories = Category::take('4')->get();
+        $courses   = Course::with('videos')->take(4)->get();
+        return view('pages.all-class', [
+            'categories' => $categories,
+            'courses' => $courses
+        ]);
     }
 
     public function classCategory()
     {
-        return view('pages.class-categories');
+        $categories = Category::take('4')->get();
+        $courses   = Course::with('videos')->take(4)->get();
+        return view('pages.class-categories', [
+            'categories' => $categories,
+            'courses' => $courses
+        ]);
     }
 
     public function classMap()
     {
-        return view('pages.class-map');
+        $courses   = Course::with('videos')->take(4)->get();
+        $categories = Category::take('4')->get();
+        return view('pages.class-map', [
+            'courses' => $courses,
+            'categories' => $categories
+        ]);
     }
 
     public function classVideo()
@@ -43,6 +65,9 @@ class MainController extends Controller
 
     public function map()
     {
-        return view('pages.map');
+        $categories = Category::take('4')->get();
+        return view('pages.map', [
+            'categories' => $categories
+        ]);
     }
 }

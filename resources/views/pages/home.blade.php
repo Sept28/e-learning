@@ -58,30 +58,26 @@
   <div class="row">
     <div class="grid grid-cols-12 gap-4"> 
       <div class="col-span-12 text-center text-3xl font-bold">Kelas Online Populer</div>
-      <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+      @php $incrementClass = 0 @endphp
+      @forelse ($courses as $course)
+      <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl px-8 pb-5" data-aos="fade-up" data-aos-delay="{{ $incrementClass+= 100 }}" data-aos-duration="1000">
         <a href="{{ route('pages.class-video') }}">
-          <img class="rounded-xl" src="{{ asset('images/geolocation.png') }}" alt="">
-          <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps') > 5 ? substr('Studi Kasus Web Geolocation dengan Laravel dan HERE Maps',0 ,30)."..." : null ?></h2>  
+          <img class="rounded-xl object-contain w-full h-52" src="upload_image/{{ $course->image }}" alt="">
+          <h2 class="pt-3 text-lg font-semibold leading-snug">{{ Str::of($course->name)->limit(20, '...'); }}</h2>  
         </a>
-        <p class="py-3 text-gray-400 text-md font-semibold">15 modul</p>
-        <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
+        <p class="py-3 text-gray-400 text-md font-semibold">{{ $course->videos->count() }} Chapter</p>
+        <p>{{ Str::of($course->description)->limit(100, '...'); }}</p>
       </div>
+      @empty
       <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
         <a href="{{ route('pages.class-video') }}">
           <img class="rounded-xl" src="{{ asset('images/e-learning.png') }}" alt="">
-          <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase') > 5 ? substr('Membuat Aplikasi E-learning di Android menggunakan Realtime Firebase',0 ,35)."..." : null ?></h2>
+          <h2 class="pt-3 text-lg font-semibold leading-snug">No Title Yet</h2>
         </a>
-        <p class="py-3 text-gray-400 text-md font-semibold">15 modul</p>
-        <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
+        <p class="py-3 text-gray-400 text-md font-semibold">No Modul Yet</p>
+        <p>Empty</p>
       </div>
-      <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl p-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-        <a href="{{ route('pages.class-video') }}">
-          <img class="rounded-xl" src="{{ asset('images/laravel.jpg') }}" alt="">
-          <h2 class="pt-3 text-lg font-semibold leading-snug"><?= str_word_count('Laravel 8x Fundamental Laravel 8x Fundamental with this e-learning') > 5 ? substr('Laravel 8x Fundamental with this e-learning',0 ,35)."..." : null ?></h2>
-        </a>
-        <p class="py-3 text-gray-400 text-md font-semibold">48 modul</p>
-        <p>Description : <?= str_word_count('Lorem Ipsum is simply dummy text of the printing and typesetting industry') > 5 ? substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry',0 ,70)."..." : null ?></p>
-      </div>
+      @endforelse
     </div>
   </div>
 
@@ -89,45 +85,31 @@
   <div class="row mt-14">
     <div class="grid grid-cols-12 gap-4">
     <div class="col-span-12 text-xl font-bold text-center md:text-left">Pilih Kelas Berdasarkan Category</div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-      <div class="rounded-xl p-8">
-        <a href="{{ route('pages.class-category') }}">
-          <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category.png') }}" alt="">
-          <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Web Developer</h2>
-        </a>
-    </div>
-    </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-      <div class="rounded-xl p-8">
-        <a href="{{ route('pages.class-category') }}">
-          <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category2.png') }}" alt="">
-          <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Android Developer</h2>
-        </a>
-      </div>
-    </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-      <div class="rounded-xl p-8">
-        <a href="{{ route('pages.class-category') }}">
-          <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category3.jpg') }}" alt="">
-          <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Ios Developer</h2>
-        </a>
-      </div>
-    </div>
-    <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+      @php $incrementProduct = 0 @endphp
+      @forelse ($categories as $category)
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="{{ $incrementProduct+= 100 }}" data-aos-duration="1000">
         <div class="rounded-xl p-8">
           <a href="{{ route('pages.class-category') }}">
-            <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/category4.png') }}" alt="">
-            <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">Fullstack Developer</h2>
+            <img class="mx-auto md:mx-0 rounded-xl w-full h-28 object-contain" src="upload_image/{{ $category->image }}" alt="">
+            <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">{{ $category->name }}</h2>
           </a>
         </div>
       </div>
+      @empty
+      <div class="col-span-12 md:col-span-6 lg:col-span-3 bg-white rounded-xl" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+        <div class="rounded-xl p-8">
+            <img class="mx-auto md:mx-0 rounded-xl w-full lg:w-1/2" src="{{ asset('images/happy.svg') }}" alt="">
+            <h2 class="pt-5 text-center md:text-left font-semibold leading-snug">No categories Found</h2>
+        </div>
+      </div>
+      @endforelse
     </div>
   </div>
 
   {{-- Ads 1--}}
   <div class="row mt-32">
     <div class="grid grid-cols-12">
-      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-left" data-aos="fade-up-right" data-aos-delay="200" data-aos-duration="1000">
+      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-left" data-aos="fade-up-right" data-aos-delay="400" data-aos-duration="1000">
         <h2 class="text-4xl font-semibold leading-normal">Belajar Coding 100% Lebih Cepat dan Terarah</h2>
         <p class="py-5 text-lg text-gray-600 leading-relaxed mx-auto lg:w-9/12 lg:m-0">
           Bagaimana jika kamu bisa menghemat waktu
@@ -138,19 +120,18 @@
           <img class="mx-auto" src="{{ asset('images/undraw_programming_2svr.svg') }}" alt="">
         </div>
       </div>
-      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-left" data-aos-delay="100" data-aos-duration="1000">
+      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-left" data-aos-delay="200" data-aos-duration="1000">
         <img class="mx-auto" src="{{ asset('images/undraw_programming_2svr.svg') }}" alt="">
       </div>
     </div>
   </div>
-
   {{-- Ads 2 --}}
   <div class="row mt-32">
     <div class="grid grid-cols-12">
-      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-right" data-aos-delay="100" data-aos-duration="1000">
+      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-right" data-aos-delay="200" data-aos-duration="1000">
         <img class="mx-auto" src="{{ asset('images/undraw_season_change_f99v.svg') }}" alt="">
       </div>
-      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-right" data-aos="fade-up-left" data-aos-delay="200" data-aos-duration="1000">
+      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-right" data-aos="fade-up-left" data-aos-delay="400" data-aos-duration="1000">
         <div class="lg:w-11/12 lg:ml-auto">
           <h2 class="text-4xl font-semibold leading-normal">Kamu yang Tentukan Sendiri Waktu Belajarmu</h2>
           <p class="py-5 text-lg text-gray-600 leading-relaxed mx-auto lg:w-10/12 lg:mr-0">
@@ -160,16 +141,15 @@
           </p>
         </div>
         <div class="py-5 lg:hidden">
-          <img class="mx-auto" src="{{ asset('images/undraw_season_change_f99v.svg') }}" data-aos="fade-up-right" data-aos-delay="100" data-aos-duration="1000">
+          <img class="mx-auto" src="{{ asset('images/undraw_season_change_f99v.svg') }}" data-aos="fade-up-right" data-aos-delay="200" data-aos-duration="1000">
         </div>
       </div>
     </div>
   </div>
-
-    {{-- Ads 3--}}
+  {{-- Ads 3--}}
   <div class="row mt-32">
     <div class="grid grid-cols-12">
-      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-left" data-aos="fade-up-right" data-aos-delay="200" data-aos-duration="1000">
+      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-left" data-aos="fade-up-right" data-aos-delay="400" data-aos-duration="1000">
         <h2 class="text-4xl font-semibold leading-normal lg:w-11/12">Belajar Langsung dari Project Studi Kasus</h2>
         <p class="py-5 text-lg text-gray-600 leading-relaxed mx-auto lg:w-10/12 lg:m-0">
           Tidak hanya membahas teori, di sini kamu juga akan
@@ -177,23 +157,22 @@
           yang sedang kamu pelajari dalam sebuah project
           nyata.
         </p>
-        <div class="py-5 lg:hidden" data-aos="fade-up-left" data-aos-delay="100" data-aos-duration="1000">
+        <div class="py-5 lg:hidden" data-aos="fade-up-left" data-aos-delay="400" data-aos-duration="1000">
           <img class="mx-auto" src="{{ asset('images/blogging.svg') }}" alt="">
         </div>
       </div>
-      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-left" data-aos-delay="100" data-aos-duration="1000">
+      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-left" data-aos-delay="400" data-aos-duration="1000">
         <img class="mx-auto" src="{{ asset('images/blogging.svg') }}" alt="">
       </div>
     </div>
   </div>
-
   {{-- Ads 4 --}}
   <div class="row mt-32">
     <div class="grid grid-cols-12">
-      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-right" data-aos-delay="100" data-aos-duration="1000">
+      <div class="hidden lg:flex lg:col-span-6" data-aos="fade-up-right" data-aos-delay="400" data-aos-duration="1000">
         <img class="mx-auto" src="{{ asset('images/game.svg') }}" alt="">
       </div>
-      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-right" data-aos="fade-up-left" data-aos-delay="200" data-aos-duration="1000">
+      <div class="col-span-12 lg:col-span-6 my-auto text-center lg:text-right" data-aos="fade-up-left" data-aos-delay="400" data-aos-duration="1000">
         <div class="lg:w-11/12 lg:ml-auto">
           <h2 class="text-4xl font-semibold leading-normal">Belajar Coding Asyik Seperti Bermain Game</h2>
           <p class="py-5 text-lg text-gray-600 leading-relaxed mx-auto lg:w-10/12 lg:mr-0">
@@ -204,7 +183,7 @@
           coding.
           </p>
         </div>
-        <div class="py-5 lg:hidden" data-aos="fade-up-right" data-aos-delay="100" data-aos-duration="1000">
+        <div class="py-5 lg:hidden" data-aos="fade-up-right" data-aos-delay="400" data-aos-duration="1000">
           <img class="mx-auto" src="{{ asset('images/game.svg') }}" alt="">
         </div>
       </div>
